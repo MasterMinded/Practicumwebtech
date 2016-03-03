@@ -1,0 +1,19 @@
+body {
+    background-image: url(../img/004-polished-wood.png);
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Open Sans","Helvetica Neue",Helvetica,Roboto,Arial,sans-serif;
+
+}
+
+.content{
+    width: 100%;
+    float: left;
+    background-color: rgba(254,254,254,.8);
+    padding: 15px .9375rem;
+    border-radius: 10px;
+    margin-bottom: 6.25rem;
+    margin-top: 6.25rem;
+    margin-right: 10rem;
+    margin-left: 10rem;
+}
