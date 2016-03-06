@@ -6,6 +6,24 @@ h1, h2, h3, h4, h5, h6 {
 
 }
 
+h1 {
+    text-align: center;
+}
+
+h2 {
+    text-align: left;
+}
+
+h3 {
+    text-align: right;
+}
+
+p {
+    font-family: "Times New Roman", Times, serif;
+    text-indent: 20px;
+    font-size: 20px;
+}
+
 .content{
     width: 80%;
     float: left;

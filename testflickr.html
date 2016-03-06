@@ -7,22 +7,13 @@
             width: 100%
         }
     </style>
-        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/masterstylesheet.css">
     <script src="js/jquery-1.12.1.min.js"></script>
     <script>
         vz = 0;
         var apiurl,myresult,apiurl_size,selected_size,limit;
         apiurl = "https://api.flickr.com/services/rest/?method=flickr.people.getPhotos&api_key=6d2f75219d8cb651caec8ad07c5e40ab&user_id=140639182%40N05&per_page=3&format=json&nojsoncallback=1&auth_token=72157664822080469-733df3a7d8ecf777&api_sig=f4a0ad9e3460174ce7ee66fa5829232d";
         $(document).ready(function() {
-            $("#sq").click(function () {
-                selected_size = 75;
-            });
-            $("#lg-sq").click(function () {
-                selected_size = 150;
-            });
-            $("#thumb").click(function () {
-                selected_size = 100;
-            });
             $("#small").click(function () {
                 selected_size = 240;
             });
@@ -37,7 +28,7 @@
                 document.getElementById('results').innerHTML = 'Loading...';
                 $.getJSON(apiurl, function (json) {
                     document.getElementById('results').innerHTML = '';
-                    $.each(json.photos, function (i, myresult) {
+                    $.each(json.photos, function () {
                         apiurl_size = "https://api.flickr.com/services/rest/?method=flickr.people.getPhotos&api_key=6d2f75219d8cb651caec8ad07c5e40ab&user_id=140639182%40N05&per_page=3&format=json&nojsoncallback=1&auth_token=72157664822080469-733df3a7d8ecf777&api_sig=f4a0ad9e3460174ce7ee66fa5829232d";
                         $.getJSON(apiurl_size, function (size) {
                             $.each(size.photos.photo, function (i, myresult_size) {
