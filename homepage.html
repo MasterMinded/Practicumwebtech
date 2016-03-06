@@ -29,19 +29,61 @@
                     <li><a href="testflickr.html"> Media</a></li>
                 </ul>
             </nav>
+
+        //INDEX
+
+
         <section class="content" id="tcontent" style="display:none;">
             <article>
                 <h1>Inhoudsopgave</h1>
-                <p>
+                    <span>+</span> <a href="#">Home</a><br>
+            <span class="hid">
+            <a href="homepage.html">Index</a><br>
+            <a href="homepage.html">Amazon's History</a><br>
+            </span>
+
+                <span>+</span> <a href="#">Amazon's Technology</a><br>
+            <span class="hid">
+            <a href="technology.html#ai">Amazon Echo (AI)</a><br>
+            <a href="technology.html#ipv6">IPv6</a><br>
+            <a href="technology.html#rp">Robotic prosthetics</a><br>
+            </span>
+                <span>+</span> <a href="#">Amazon's Security</a><br>
+            <span class="hid">
+            <a href="security.html">DDoS Mitigation and Port Sweep Prevention</a><br>
+            </span>
+                <span>+</span> <a href="#">Amazon Web Services</a><br>
+        <span class="hid">
+            <a href="webservices.html">Amazon CloudFront</a><br>
+            <a href="webservices.html">Amazon elastic compute cloud</a><br>
+            </span>
+                <span>+</span> <a href="#">Amazon's API and Methods</a><br>
+            <span class="hid">
+            <a href="api.html">API</a><br>
+            </span>
+                <span>+</span> <a href="#">Amazon's Market Dominance</a><br>
+            <span class="hid">
+            <a href="dominance.html">Market Dominance</a><br>
+            </span>
 
 
-                </p>
-
+                <script>
+                    $('a').click(function(){
+                        if($(this).attr('href') == '#'){
+                            var h = $(this).prev('span').html();
+                            $(this).prev('span').html(h=='+'?'-':'+');
+                            if(h=='+')
+                                $(this).next('br').next().addClass('hid2');
+                            else
+                                $(this).next('br').next().removeClass('hid2');
+                        }
+                    });
+                </script>
             </article>
 
         </section>
         <div id="dialog" style="display:none;">
-            <p>Welcome on our informative website about Amazon.</p>
+            <p>Welcome to our informative website about Amazon.</p>
         </div>
         <script>
             /* Show Toggle Effect for content */

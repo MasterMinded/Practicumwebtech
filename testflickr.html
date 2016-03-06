@@ -3,7 +3,7 @@
 <head>
     <title>Fotobrowser</title>
     <style type="text/css">
-        #sq,#lg-sq,#thumb,#small,#mid,#ori {
+        #small,#mid,#ori {
             width: 100%
         }
     </style>
@@ -61,37 +61,31 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-2">
-            <button type="button" class="btn btn-primary" id="sq">Square [75X75]</button>
-        </div>
-        <div class="col-md-2">
-            <button type="button" class="btn btn-primary" id="lg-sq">Large Square [150X150]</button>
-        </div>
-        <div class="col-md-2">
-            <button type="button" class="btn btn-primary" id="thumb">Thumbnail</button>
-        </div>
-        <div class="col-md-2">
+        <!--<div class="col-md-2">-->
+            <!--<button type="button" class="btn btn-primary" id="sq">Square [75X75]</button>-->
+        <!--</div>-->
+        <!--<div class="col-md-2">-->
+            <!--<button type="button" class="btn btn-primary" id="lg-sq">Large Square [150X150]</button>-->
+        <!--</div>-->
+        <!--<div class="col-md-2">-->
+            <!--<button type="button" class="btn btn-primary" id="thumb">Thumbnail</button>-->
+        <!--</div>-->
+        <div class="buttonsmall">
             <button type="button" class="btn btn-primary" id="small">Small</button>
-        </div>
-        <div class="col-md-2">
+        <div class="buttonmid">
             <button type="button" class="btn btn-primary" id="mid">Medium</button>
         </div>
-        <div class="col-md-2">
+        <div class="buttonoriginal">
             <button type="button" class="btn btn-primary" id="ori">Original</button>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-12">
-            <h2>Hit This button to fetch photos</h2>
-            <button type="button" class="btn btn-success" id="button">Fetch Recent Photos</button>
+    <div class="buttonfetch">
+            <h2>Press the button below to display Amazon media</h2>
+            <button type="button" id="button">Fetch Recent Photos</button>
             <hr>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-12">
             <div id="results"></div>
-        </div>
-    </div>
 </div>
 </body>
 </html>

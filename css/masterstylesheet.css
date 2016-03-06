@@ -90,3 +90,13 @@ nav li .currentpage {
     left: -35px;
     transform: rotate(-90deg);
 }
+
+.hid{
+    display:none;
+}
+.hid2{
+    display:inline;
+}
+.hid2 a{
+    margin-left:30px;
+}
