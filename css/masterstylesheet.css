@@ -36,6 +36,12 @@ p {
     margin-left: 10rem;
 }
 
+#sources {
+    background-color: lightgrey;
+    padding: 10px;
+    border-radius: 10px;
+}
+
 nav ul {
     list-style-type: none;
     margin: 0;
