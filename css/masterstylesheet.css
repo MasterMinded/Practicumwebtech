@@ -23,6 +23,9 @@ p {
     text-indent: 20px;
     font-size: 20px;
 }
+p sup {
+  font-size: 66%;
+}
 
 .content{
     width: 80%;
@@ -40,6 +43,33 @@ p {
     background-color: lightgrey;
     padding: 10px;
     border-radius: 10px;
+}
+
+.index {
+    background-color: lightgreen;
+    width: 75%;
+    padding: 1%;
+    border-radius: 10px;
+    font-size: 120%;
+}
+
+#contents {
+  position: relative;
+  right: 10%;
+}
+
+#introwrapper {
+  overflow: hidden;
+}
+
+#allcontent {
+  width: 40%;
+  overflow: hidden;
+  float: left;
+}
+
+#intro {
+  overflow: hidden;
 }
 
 nav ul {
