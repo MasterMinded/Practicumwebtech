@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        var ids = new Array();
+        var titles = new Array();
+
+        function showGallery(){
+            var sel = document.getElementById("Galleries");
+            var selectedID = sel.options[sel.selectedIndex].value;
+            $(".largeImageWrap").each(function(i){
+                $(this).remove()
+            });
+            $(".sliderGallery_Wrap").each(function(i){
+                $(this).remove()
+            });
+            $('#flickrTest').flickrGallery({
+                galleryHeight : 'auto',
+                useFlickr: 'true',
+                useFlickrLargeSize: 'true',
+                useHoverIntent: 'true',
+                flickrAPIKey: 'yourAPIKey',
+                photosetID: selectedID,
+                useLightBox: 'true',
+                per_page: 50
+            });
+        }
+        $().ready(function(){
+            $.getJSON("https://api.flickr.com/services/rest/?method=flickr.photosets.getList&api_key=cc433ef7d6b82d1318f25bca2bd1a275&format=json&nojsoncallback=1&auth_token=72157665251498472-0f6961c904471cd5&api_sig=ab81aac5689e5b8eeec962b33b5ad204",
+                    function(data){
+                        var photosetID = "";
+                        var title = "";
+                        $.each(data.photosets.photoset, function(i,set){
+                            photosetID = set.id;
+                            title = set.title._content;
+                            ids.push(photosetID);
+                            titles.push(title);
+                        });
+                        for(i=0; i<ids.length;i++){
+                            var option = new Option(titles[i],ids[i]);
+                            var dropDown = document.getElementById("Galleries");
+                            dropDown.options[i] = option;
+                        }
+
+                        $('#flickrTest').flickrGallery({
+                            galleryHeight : 'auto',
+                            useFlickr: 'true',
+                            useFlickrLargeSize: 'true',
+                            useHoverIntent: 'true',
+                            flickrAPIKey: 'a22b1a90b000578e1854ebdb3a3b5ba7',
+                            photosetID: ids[0],
+                            useLightBox: 'true',
+                            per_page: 50
+                        });
+                    });
+        });
+    </script>
+
+</head>
+<body>
+<label>Please select a Gallery from the drop-down menu to view.</label>
+<form action="" method="get" name="choose_gallery" id="choose_gallery">
+    <select name="Galleries" id="Galleries" onchange="showGallery();"></select>
+</form>
+<div id="flickrTest"></div>
+</body>
+
+</html>

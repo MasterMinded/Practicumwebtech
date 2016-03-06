@@ -48,6 +48,11 @@ nav li a:hover {
 
 nav li a:hover:not(.active) {
     background-color: #ddd;
+    /* Animation transition CSS3 */
+    -webkit-transition:background 1s;
+    -moz-transition:background 1s;
+    -o-transition:background 1s;
+    transition:background 1s
 }
 
 

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fotobrowser</title>
+    <style type="text/css">
+        #sq,#lg-sq,#thumb,#small,#mid,#ori {
+            width: 100%
+        }
+    </style>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <script src="js/jquery-1.12.1.min.js"></script>
+    <script>
+        vz = 0;
+        var apiurl,myresult,apiurl_size,selected_size,limit;
+        apiurl = "https://api.flickr.com/services/rest/?method=flickr.people.getPhotos&api_key=6d2f75219d8cb651caec8ad07c5e40ab&user_id=140639182%40N05&per_page=3&format=json&nojsoncallback=1&auth_token=72157664822080469-733df3a7d8ecf777&api_sig=f4a0ad9e3460174ce7ee66fa5829232d";
+        $(document).ready(function() {
+            $("#sq").click(function () {
+                selected_size = 75;
+            });
+            $("#lg-sq").click(function () {
+                selected_size = 150;
+            });
+            $("#thumb").click(function () {
+                selected_size = 100;
+            });
+            $("#small").click(function () {
+                selected_size = 240;
+            });
+            $("#mid").click(function () {
+                selected_size = 500;
+            });
+            $("#ori").click(function () {
+                selected_size = 640;
+            });
+            $('#button').click(function () {
+                vz = 0;
+                document.getElementById('results').innerHTML = 'Loading...';
+                $.getJSON(apiurl, function (json) {
+                    document.getElementById('results').innerHTML = '';
+                    $.each(json.photos, function (i, myresult) {
+                        apiurl_size = "https://api.flickr.com/services/rest/?method=flickr.people.getPhotos&api_key=6d2f75219d8cb651caec8ad07c5e40ab&user_id=140639182%40N05&per_page=3&format=json&nojsoncallback=1&auth_token=72157664822080469-733df3a7d8ecf777&api_sig=f4a0ad9e3460174ce7ee66fa5829232d";
+                        $.getJSON(apiurl_size, function (size) {
+                            $.each(size.photos.photo, function (i, myresult_size) {
+                                var e = document.createElement('p');
+                                var img = new Image();
+                                img.addEventListener("load", function () {
+                                    if (this.naturalWidth > selected_size || vz > 2) document.getElementById('results').removeChild(e);
+                                    else {
+                                        img.style.display = 'inline';
+                                        vz++;
+                                    }
+                                });
+                                img.style.display = 'none';
+                                img.src = 'http://c2.staticflickr.com/' + myresult_size.farm + '/' + myresult_size.server + '/' + myresult_size.id + '_' + myresult_size.secret + '_b.jpg';
+                                e.appendChild(img);
+                                document.getElementById('results').appendChild(e);
+                            });
+                        });
+                    });
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Select size of photos (in pixels) you want them to be displayed</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <button type="button" class="btn btn-primary" id="sq">Square [75X75]</button>
+        </div>
+        <div class="col-md-2">
+            <button type="button" class="btn btn-primary" id="lg-sq">Large Square [150X150]</button>
+        </div>
+        <div class="col-md-2">
+            <button type="button" class="btn btn-primary" id="thumb">Thumbnail</button>
+        </div>
+        <div class="col-md-2">
+            <button type="button" class="btn btn-primary" id="small">Small</button>
+        </div>
+        <div class="col-md-2">
+            <button type="button" class="btn btn-primary" id="mid">Medium</button>
+        </div>
+        <div class="col-md-2">
+            <button type="button" class="btn btn-primary" id="ori">Original</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Hit This button to fetch photos</h2>
+            <button type="button" class="btn btn-success" id="button">Fetch Recent Photos</button>
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div id="results"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
