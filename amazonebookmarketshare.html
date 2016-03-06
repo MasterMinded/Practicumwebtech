@@ -39,22 +39,17 @@
 	  
       <script type = "text/javascript">
         $(document).ready(function() {
-          var share = [
-				{label: "Amazon", data: 67},
-				{label: "Apple", data: 8.2},
-				{label: "Barnes & Noble", data: 11.8},
-				{label: "Other", data: 12.8}
-		  ];
+        var share = [
+          {label: "Amazon", data: 67},
+          {label: "Apple", data: 8.2},
+          {label: "Barnes & Noble", data: 11.8},
+          {label: "Other", data: 12.8}
+		    ];
 		  var placeholder = $("#placeholder");
 		  
 		  $("#title").text("Ebook market shares");
 		  $("#description").text("Main competitor's ebook market shares.");
-          $.plot(placeholder, share, { series: { pie: { show: true } } });
-		  
-		//var yaxislabel = $("<div class='axisLabel yaxisLabel'></div>")
-		//.text("Million dollars")
-		//.appendTo($('#placeholder'));
-		
+          $.plot(placeholder, share, {series: {pie: {show: true}}});
         });
 		
       </script>
