@@ -91,6 +91,16 @@ nav li .currentpage {
     transform: rotate(-90deg);
 }
 
+.graph {
+    width: 800px;
+    height: 400px;
+}
+
+.pie {
+    width: 600px;
+    height: 400px;
+}
+
 .hid{
     display:none;
 }
