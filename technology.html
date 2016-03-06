@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Test voor github</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="img/Amazonicon.ico">
+    <link rel="stylesheet" href="css/masterstylesheet.css">
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <script src="js/jquery-1.12.1.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+</head>
+<body>
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+<div id="wrapper">
+    <header id="Pagina_header"> </header>
+    <nav>
+        <ul id="Menu">
+            <li><a href="homepage.html"> Home</a></li>
+            <li><a class="currentpage" href="technology.html"> Technology</a></li>
+            <li><a href="security.html"> Security</a></li>
+            <li><a href="webservices.html"> Web services</a></li>
+            <li><a href="api.html"> API</a></li>
+            <li><a href="dominance.html"> Dominance</a></li>
+        </ul>
+    </nav>
+    <section class="content" id="tcontent" style="display:none;">
+        <article>
+            <h1>Inhoudsopgave</h1>
+            <p>
+                tekst
+
+            </p>
+
+        </article>
+
+    </section>
+    <div id="dialog" style="display:none;">
+        <p>Welcome message!</p>
+    </div>
+    <script>
+        /* Show Toggle Effect for content */
+        $( "#tcontent" ).toggle('blind', { complete: function(){
+            $('#footer').show();
+        }}, 500 );
+    </script>
+    <aside>
+
+    </aside>
+
+    <footer id="footer" style="display:none;text-align:center;">
+        bronnen
+    </footer>
+
+</div>
+</body>
+</html>
