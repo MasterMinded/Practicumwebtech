@@ -78,3 +78,15 @@ nav li .currentpage {
     color:white;
     background-color: #4CAF50;
 }
+
+.axisLabel {
+	position: absolute;
+	text-align: center;
+	font-size: 12px;
+}
+
+.yaxisLabel {
+	top: 50%;
+    left: -35px;
+    transform: rotate(-90deg);
+}
