@@ -29,6 +29,10 @@ p sup {
   font-size: 66%;
 }
 
+footer {
+  text-align: center;
+}
+
 .anchor {
   padding-top: 50px;
 }
@@ -161,4 +165,3 @@ nav li .currentpage {
 }
 #small, #mid, #ori {
     width: 100%}
-
