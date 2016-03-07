@@ -21,7 +21,7 @@
         <header id="Pagina_header"></header>
         <nav>
             <ul id="Menu">
-                <li><a class="currentpage" href="homepage.html"> Home</a></li>
+                <li><a class="currentpage" href="index.html"> Home</a></li>
                 <li><a href="technology.html"> Technology</a></li>
                 <li><a href="security.html"> Security</a></li>
                 <li><a href="webservices.html"> Web services</a></li>
@@ -33,8 +33,8 @@
 
     <script>
     vz = 0;
-    var apiurl, myresult, apiurl_size, selected_size, limit;
-    apiurl = "https://api.flickr.com/services/rest/?method=flickr.people.getPhotos&api_key=54f8af3fd039bb7376cf5f26eef23522&user_id=140639182%40N05&per_page=3&format=json&nojsoncallback=1&auth_token=72157665400338791-5aec2f0071a64ab7&api_sig=ff69d053052bd046c8923d4cbb6b0c60";
+    var url, result, url_size, selected_size, limit;
+    url = "https://api.flickr.com/services/rest/?method=flickr.people.getPhotos&api_key=54f8af3fd039bb7376cf5f26eef23522&user_id=140639182%40N05&per_page=3&format=json&nojsoncallback=1&auth_token=72157665400338791-5aec2f0071a64ab7&api_sig=ff69d053052bd046c8923d4cbb6b0c60";
     $(document).ready(function () {
       $("#small").click(function () {
         selected_size = 240;
@@ -48,12 +48,12 @@
       $('#button').click(function () {
         vz = 0;
         document.getElementById('results').innerHTML = 'Loading...';
-        $.getJSON(apiurl, function (json) {
+        $.getJSON(url, function (json) {
           document.getElementById('results').innerHTML = '';
           $.each(json.photos, function () {
-            apiurl_size = "https://api.flickr.com/services/rest/?method=flickr.people.getPhotos&api_key=54f8af3fd039bb7376cf5f26eef23522&user_id=140639182%40N05&per_page=3&format=json&nojsoncallback=1&auth_token=72157665400338791-5aec2f0071a64ab7&api_sig=ff69d053052bd046c8923d4cbb6b0c60";
-            $.getJSON(apiurl_size, function (size) {
-              $.each(size.photos.photo, function (i, myresult_size) {
+            url_size = "https://api.flickr.com/services/rest/?method=flickr.people.getPhotos&api_key=54f8af3fd039bb7376cf5f26eef23522&user_id=140639182%40N05&per_page=3&format=json&nojsoncallback=1&auth_token=72157665400338791-5aec2f0071a64ab7&api_sig=ff69d053052bd046c8923d4cbb6b0c60";
+            $.getJSON(url_size, function (size) {
+              $.each(size.photos.photo, function (i, result_size) {
                 var e = document.createElement('p');
                 var img = new Image();
                 img.addEventListener("load", function () {
@@ -64,7 +64,7 @@
                   }
                 });
                 img.style.display = 'none';
-                img.src = 'http://c2.staticflickr.com/' + myresult_size.farm + '/' + myresult_size.server + '/' + myresult_size.id + '_' + myresult_size.secret + '_b.jpg';
+                img.src = 'http://c2.staticflickr.com/' + result_size.farm + '/' + result_size.server + '/' + result_size.id + '_' + result_size.secret + '_b.jpg';
                 e.appendChild(img);
                 document.getElementById('results').appendChild(e);
               });
@@ -94,7 +94,5 @@
       <hr>
     </div>
   <div id="results"></div>
-</div>
-</div>
 </body>
 </html>
