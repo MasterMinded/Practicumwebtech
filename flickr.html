@@ -1,91 +1,92 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Fotobrowser</title>
-    <style type="text/css">
-        #small,#mid,#ori {
-            width: 100%
-        }
-    </style>
-        <link rel="stylesheet" type="text/css" href="css/masterstylesheet.css">
-    <script src="js/jquery-1.12.1.min.js"></script>
-    <script>
+  <title>Fotobrowser</title>
+  <style type="text/css">
+    #small, #mid, #ori {
+      width: 100%
+    }
+  </style>
+  <link rel="stylesheet" type="text/css" href="css/masterstylesheet.css">
+  <script src="js/jquery-1.12.1.min.js"></script>
+  <script>
+    vz = 0;
+    var apiurl, myresult, apiurl_size, selected_size, limit;
+    apiurl = "https://api.flickr.com/services/rest/?method=flickr.people.getPhotos&api_key=6d2f75219d8cb651caec8ad07c5e40ab&user_id=140639182%40N05&per_page=3&format=json&nojsoncallback=1&auth_token=72157664822080469-733df3a7d8ecf777&api_sig=f4a0ad9e3460174ce7ee66fa5829232d";
+    $(document).ready(function () {
+      $("#small").click(function () {
+        selected_size = 240;
+      });
+      $("#mid").click(function () {
+        selected_size = 500;
+      });
+      $("#ori").click(function () {
+        selected_size = 640;
+      });
+      $('#button').click(function () {
         vz = 0;
-        var apiurl,myresult,apiurl_size,selected_size,limit;
-        apiurl = "https://api.flickr.com/services/rest/?method=flickr.people.getPhotos&api_key=6d2f75219d8cb651caec8ad07c5e40ab&user_id=140639182%40N05&per_page=3&format=json&nojsoncallback=1&auth_token=72157664822080469-733df3a7d8ecf777&api_sig=f4a0ad9e3460174ce7ee66fa5829232d";
-        $(document).ready(function() {
-            $("#small").click(function () {
-                selected_size = 240;
-            });
-            $("#mid").click(function () {
-                selected_size = 500;
-            });
-            $("#ori").click(function () {
-                selected_size = 640;
-            });
-            $('#button').click(function () {
-                vz = 0;
-                document.getElementById('results').innerHTML = 'Loading...';
-                $.getJSON(apiurl, function (json) {
-                    document.getElementById('results').innerHTML = '';
-                    $.each(json.photos, function () {
-                        apiurl_size = "https://api.flickr.com/services/rest/?method=flickr.people.getPhotos&api_key=6d2f75219d8cb651caec8ad07c5e40ab&user_id=140639182%40N05&per_page=3&format=json&nojsoncallback=1&auth_token=72157664822080469-733df3a7d8ecf777&api_sig=f4a0ad9e3460174ce7ee66fa5829232d";
-                        $.getJSON(apiurl_size, function (size) {
-                            $.each(size.photos.photo, function (i, myresult_size) {
-                                var e = document.createElement('p');
-                                var img = new Image();
-                                img.addEventListener("load", function () {
-                                    if (this.naturalWidth > selected_size || vz > 2) document.getElementById('results').removeChild(e);
-                                    else {
-                                        img.style.display = 'inline';
-                                        vz++;
-                                    }
-                                });
-                                img.style.display = 'none';
-                                img.src = 'http://c2.staticflickr.com/' + myresult_size.farm + '/' + myresult_size.server + '/' + myresult_size.id + '_' + myresult_size.secret + '_b.jpg';
-                                e.appendChild(img);
-                                document.getElementById('results').appendChild(e);
-                            });
-                        });
-                    });
+        document.getElementById('results').innerHTML = 'Loading...';
+        $.getJSON(apiurl, function (json) {
+          document.getElementById('results').innerHTML = '';
+          $.each(json.photos, function () {
+            apiurl_size = "https://api.flickr.com/services/rest/?method=flickr.people.getPhotos&api_key=6d2f75219d8cb651caec8ad07c5e40ab&user_id=140639182%40N05&per_page=3&format=json&nojsoncallback=1&auth_token=72157664822080469-733df3a7d8ecf777&api_sig=f4a0ad9e3460174ce7ee66fa5829232d";
+            $.getJSON(apiurl_size, function (size) {
+              $.each(size.photos.photo, function (i, myresult_size) {
+                var e = document.createElement('p');
+                var img = new Image();
+                img.addEventListener("load", function () {
+                  if (this.naturalWidth > selected_size || vz > 2) document.getElementById('results').removeChild(e);
+                  else {
+                    img.style.display = 'inline';
+                    vz++;
+                  }
                 });
+                img.style.display = 'none';
+                img.src = 'http://c2.staticflickr.com/' + myresult_size.farm + '/' + myresult_size.server + '/' + myresult_size.id + '_' + myresult_size.secret + '_b.jpg';
+                e.appendChild(img);
+                document.getElementById('results').appendChild(e);
+              });
             });
+          });
         });
-    </script>
+      });
+    });
+  </script>
 </head>
 <body>
 <div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <h2>Select size of photos (in pixels) you want them to be displayed</h2>
-        </div>
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Select size of photos (in pixels) you want them to be displayed</h2>
     </div>
-    <div class="row">
-        <!--<div class="col-md-2">-->
-            <!--<button type="button" class="btn btn-primary" id="sq">Square [75X75]</button>-->
-        <!--</div>-->
-        <!--<div class="col-md-2">-->
-            <!--<button type="button" class="btn btn-primary" id="lg-sq">Large Square [150X150]</button>-->
-        <!--</div>-->
-        <!--<div class="col-md-2">-->
-            <!--<button type="button" class="btn btn-primary" id="thumb">Thumbnail</button>-->
-        <!--</div>-->
-        <div class="buttonsmall">
-            <button type="button" class="btn btn-primary" id="small">Small</button>
-        <div class="buttonmid">
-            <button type="button" class="btn btn-primary" id="mid">Medium</button>
-        </div>
-        <div class="buttonoriginal">
-            <button type="button" class="btn btn-primary" id="ori">Original</button>
-        </div>
+  </div>
+  <div class="row">
+    <!--<div class="col-md-2">-->
+    <!--<button type="button" class="btn btn-primary" id="sq">Square [75X75]</button>-->
+    <!--</div>-->
+    <!--<div class="col-md-2">-->
+    <!--<button type="button" class="btn btn-primary" id="lg-sq">Large Square [150X150]</button>-->
+    <!--</div>-->
+    <!--<div class="col-md-2">-->
+    <!--<button type="button" class="btn btn-primary" id="thumb">Thumbnail</button>-->
+    <!--</div>-->
+    <div class="button small">
+      <button type="button" class="btn btn-primary" id="small">Small</button>
     </div>
+    <div class="button mid">
+      <button type="button" class="btn btn-primary" id="mid">Medium</button>
+    </div>
+    <div class="button original">
+      <button type="button" class="btn btn-primary" id="ori">Original</button>
+    </div>
+    <br>
     <div class="buttonfetch">
-            <h2>Press the button below to display Amazon media</h2>
-            <button type="button" id="button">Fetch Recent Photos</button>
-            <hr>
-        </div>
+      <h2>Press the button below to display Amazon media</h2>
+      <button type="button" id="button">Fetch Recent Photos</button>
+      <hr>
     </div>
-            <div id="results"></div>
+  </div>
+  <div id="results"></div>
 </div>
 </body>
 </html>
