@@ -163,3 +163,5 @@ nav li .currentpage {
   width: 20%;
   float: left;
 }
+#small, #mid, #ori {
+    width: 100%}

@@ -1,18 +1,40 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Fotobrowser</title>
-  <style type="text/css">
-    #small, #mid, #ori {
-      width: 100%
-    }
-  </style>
-  <link rel="stylesheet" type="text/css" href="css/masterstylesheet.css">
-  <script src="js/jquery-1.12.1.min.js"></script>
-  <script>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Fotobrowser</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" href="img/Amazonicon.ico">
+        <link rel="stylesheet" href="css/masterstylesheet.css">
+        <link rel="stylesheet" href="css/jquery-ui.css">
+        <script src="js/jquery-1.12.1.min.js"></script>
+        <script src="js/jquery-ui.min.js"></script>
+    </head>
+    <body>
+    <!--[if lt IE 8]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+        your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <div id="wrapper">
+        <header id="Pagina_header"></header>
+        <nav>
+            <ul id="Menu">
+                <li><a class="currentpage" href="homepage.html"> Home</a></li>
+                <li><a href="technology.html"> Technology</a></li>
+                <li><a href="security.html"> Security</a></li>
+                <li><a href="webservices.html"> Web services</a></li>
+                <li><a href="api.html"> API</a></li>
+                <li><a href="dominance.html"> Dominance</a></li>
+                <li><a href="flickr.html"> Media</a></li>
+            </ul>
+        </nav>
+
+    <script>
     vz = 0;
     var apiurl, myresult, apiurl_size, selected_size, limit;
-    apiurl = "https://api.flickr.com/services/rest/?method=flickr.people.getPhotos&api_key=6d2f75219d8cb651caec8ad07c5e40ab&user_id=140639182%40N05&per_page=3&format=json&nojsoncallback=1&auth_token=72157664822080469-733df3a7d8ecf777&api_sig=f4a0ad9e3460174ce7ee66fa5829232d";
+    apiurl = "https://api.flickr.com/services/rest/?method=flickr.people.getPhotos&api_key=54f8af3fd039bb7376cf5f26eef23522&user_id=140639182%40N05&per_page=3&format=json&nojsoncallback=1&auth_token=72157665400338791-5aec2f0071a64ab7&api_sig=ff69d053052bd046c8923d4cbb6b0c60";
     $(document).ready(function () {
       $("#small").click(function () {
         selected_size = 240;
@@ -29,7 +51,7 @@
         $.getJSON(apiurl, function (json) {
           document.getElementById('results').innerHTML = '';
           $.each(json.photos, function () {
-            apiurl_size = "https://api.flickr.com/services/rest/?method=flickr.people.getPhotos&api_key=6d2f75219d8cb651caec8ad07c5e40ab&user_id=140639182%40N05&per_page=3&format=json&nojsoncallback=1&auth_token=72157664822080469-733df3a7d8ecf777&api_sig=f4a0ad9e3460174ce7ee66fa5829232d";
+            apiurl_size = "https://api.flickr.com/services/rest/?method=flickr.people.getPhotos&api_key=54f8af3fd039bb7376cf5f26eef23522&user_id=140639182%40N05&per_page=3&format=json&nojsoncallback=1&auth_token=72157665400338791-5aec2f0071a64ab7&api_sig=ff69d053052bd046c8923d4cbb6b0c60";
             $.getJSON(apiurl_size, function (size) {
               $.each(size.photos.photo, function (i, myresult_size) {
                 var e = document.createElement('p');
@@ -52,24 +74,10 @@
       });
     });
   </script>
-</head>
-<body>
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <h2>Select size of photos (in pixels) you want them to be displayed</h2>
+<div class="buttonwrapper">
+      <h2>Select your prefered size in px that you want the images to be displayed in</h2>
     </div>
   </div>
-  <div class="row">
-    <!--<div class="col-md-2">-->
-    <!--<button type="button" class="btn btn-primary" id="sq">Square [75X75]</button>-->
-    <!--</div>-->
-    <!--<div class="col-md-2">-->
-    <!--<button type="button" class="btn btn-primary" id="lg-sq">Large Square [150X150]</button>-->
-    <!--</div>-->
-    <!--<div class="col-md-2">-->
-    <!--<button type="button" class="btn btn-primary" id="thumb">Thumbnail</button>-->
-    <!--</div>-->
     <div class="button small">
       <button type="button" class="btn btn-primary" id="small">Small</button>
     </div>
@@ -85,8 +93,8 @@
       <button type="button" id="button">Fetch Recent Photos</button>
       <hr>
     </div>
-  </div>
   <div id="results"></div>
+</div>
 </div>
 </body>
 </html>
