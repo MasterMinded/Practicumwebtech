@@ -1,28 +1,30 @@
 body {
-    background-image: url(../img/004-polished-wood.png);
+  background-image: url(../img/004-polished-wood.png);
 }
+
 h1, h2, h3, h4, h5, h6 {
-    font-family: "Open Sans","Helvetica Neue",Helvetica,Roboto,Arial,sans-serif;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
 
 }
 
 h1 {
-    text-align: center;
+  text-align: center;
 }
 
 h2 {
-    text-align: left;
+  text-align: left;
 }
 
 h3 {
-    text-align: right;
+  text-align: right;
 }
 
 p {
-    font-family: "Times New Roman", Times, serif;
-    text-indent: 20px;
-    font-size: 20px;
+  font-family: "Times New Roman", Times, serif;
+  text-indent: 20px;
+  font-size: 20px;
 }
+
 p sup {
   font-size: 66%;
 }
@@ -31,30 +33,30 @@ p sup {
   padding-top: 50px;
 }
 
-.content{
-    width: 80%;
-    float: left;
-    background-color: rgba(254,254,254,.8);
-    padding: 15px .9375rem;
-    border-radius: 10px;
-    margin-bottom: 6.25rem;
-    margin-top: 6.25rem;
-    margin-right: 10rem;
-    margin-left: 10rem;
+.content {
+  width: 80%;
+  float: left;
+  background-color: rgba(254, 254, 254, .8);
+  padding: 15px .9375rem;
+  border-radius: 10px;
+  margin-bottom: 6.25rem;
+  margin-top: 6.25rem;
+  margin-right: 10rem;
+  margin-left: 10rem;
 }
 
 #sources {
-    background-color: lightgrey;
-    padding: 10px;
-    border-radius: 10px;
+  background-color: lightgrey;
+  padding: 10px;
+  border-radius: 10px;
 }
 
 .index {
-    background-color: lightgreen;
-    width: 75%;
-    padding: 1%;
-    border-radius: 10px;
-    font-size: 120%;
+  background-color: lightgreen;
+  width: 75%;
+  padding: 1%;
+  border-radius: 10px;
+  font-size: 120%;
 }
 
 #contents {
@@ -77,79 +79,80 @@ p sup {
 }
 
 nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #f3f3f3;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    border: 1px solid #e7e7e7;
-    z-index: 1;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #f3f3f3;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  border: 1px solid #e7e7e7;
+  z-index: 1;
 }
 
 nav li {
-    float: left;
+  float: left;
 }
 
 nav li a {
-    display: block;
-    color: #666;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
+  display: block;
+  color: #666;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
 }
 
 nav li a:hover {
-    background-color: #111;
+  background-color: #111;
 }
 
 nav li a:hover:not(.active) {
-    background-color: #ddd;
-    /* Animation transition CSS3 */
-    -webkit-transition:background 1s;
-    -moz-transition:background 1s;
-    -o-transition:background 1s;
-    transition:background 1s
+  background-color: #ddd;
+  /* Animation transition CSS3 */
+  -webkit-transition: background 1s;
+  -moz-transition: background 1s;
+  -o-transition: background 1s;
+  transition: background 1s
 }
 
-
 nav li .currentpage {
-    color:white;
-    background-color: #4CAF50;
+  color: white;
+  background-color: #4CAF50;
 }
 
 .axisLabel {
-	position: absolute;
-	text-align: center;
-	font-size: 12px;
+  position: absolute;
+  text-align: center;
+  font-size: 12px;
 }
 
 .yaxisLabel {
-	top: 50%;
-    left: -35px;
-    transform: rotate(-90deg);
+  top: 50%;
+  left: -35px;
+  transform: rotate(-90deg);
 }
 
 .graph {
-    width: 800px;
-    height: 400px;
+  width: 800px;
+  height: 400px;
 }
 
 .pie {
-    width: 600px;
-    height: 400px;
+  width: 600px;
+  height: 400px;
 }
 
-.hid{
-    display:none;
+.hid {
+  display: none;
 }
-.hid2{
-    display:inline;
+
+.hid2 {
+  display: inline;
 }
-.hid2 a{
-    margin-left:30px;
+
+.hid2 a {
+  margin-left: 30px;
 }
 
 .button {
